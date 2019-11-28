@@ -43,14 +43,14 @@ public class FileManager {
     public static File getFile(String name) {
         String homeDir = System.getProperty("user.home");
         String fileSeparator = System.getProperty("file.separator");
-        String absoluteFilePath = homeDir + fileSeparator + name;
+        String absoluteFilePath = homeDir + fileSeparator + "sort" + fileSeparator + name;
         return new File(absoluteFilePath);
     }
 
     public static File getTempFile(int i) {
         String homeDir = System.getProperty("user.home");
         String fileSeparator = System.getProperty("file.separator");
-        String absoluteFilePath = homeDir + fileSeparator + "temporary" + i + ".txt";
+        String absoluteFilePath = homeDir + fileSeparator + "sort" + fileSeparator  + "temporary" + i + ".txt";
         File file = new File(absoluteFilePath);
         try {
             file.createNewFile();
@@ -63,7 +63,7 @@ public class FileManager {
     public static File newSortedFile(int k) {
         String homeDir = System.getProperty("user.home");
         String fileSeparator = System.getProperty("file.separator");
-        String absoluteFilePath = homeDir + fileSeparator + "sortedFile" + k + ".txt";
+        String absoluteFilePath = homeDir + fileSeparator + "sort" + fileSeparator  + "sortedFile" + k + ".txt";
         File file = new File(absoluteFilePath);
         try {
             file.createNewFile();
@@ -79,7 +79,6 @@ public class FileManager {
         for (Integer integer : intValuesFromOriginFile) {
             str.append(integer).append("\n");
         }
-
         try (FileWriter fw = new FileWriter(file.getAbsolutePath(), true)) {
             fw.write(str.toString());
         }
